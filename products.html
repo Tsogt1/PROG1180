@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="https://kit.fontawesome.com/49caa8d480.js" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.css"/>
+    
+    <link rel="stylesheet" href="css/style.css" />
+
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.js"></script>
+    <title>Home</title>
+</head>
+
+<body>
+    <div class="container display-8">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="home.html"><img src="/img/logo_home.png" alt="ESM LOGO" width="120px"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    </ul>
+                    <form class="d-flex">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item dropdown ms-10">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fa-box-open"></i> &nbsp; Inventory
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="orders.html"><i class="fas fa-file-signature"></i> &nbsp; Orders</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="suppliers.html"><i class="fas fa-dolly"></i> &nbsp;Suppliers</a></li>
+                                    <li><a class="dropdown-item" href="products.html"><i class="fas fa-tachometer-alt"></i> &nbsp;Products</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"><i class="fas fa-tags"></i>&nbsp; POS</a>
+                            </li>
+                            <li class="nav-item dropdown ms-10">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fas fa-tools"></i> &nbsp; Maintenance
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="employees.html"><i class="fas fa-users"></i> &nbsp; Employees</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="customers.html"><i class="fas fa-user-alt"></i> &nbsp;Customers</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"><i class="fas fas fa-chart-line"></i>&nbsp; Reports</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html"><i class="fas fa-sign-out-alt"> </i>&nbsp;Logout</a>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </div>
+    
+    
+    <div class="container pt-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="home.html">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Products</li>
+            </ol>
+        </nav>
+        <div class="row">
+            <div class="col-sm">
+                <h2 class="">Products</h2>
+            </div>
+            <div class="col-sm">
+             
+            </div>
+            <div class="col-sm text-alig">
+             
+            </div>
+            <div class="col mb-9 float-right">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#productModal">
+                    Add New Product
+                </button>
+            </div>
+        </div>
+        
+        <table id="products" class="display compact table-striped" width="100%" ></table>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Product</h5>
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-sm">
+                    <div class="form-group col-md">
+                        <label for="upc" clas="bold">UPC</label>
+                        <input type="text" class="form-control" id="upc" placeholder="UPC" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <div class="form-group col-md">
+                        <label for="description" clas="bold">Description</label>
+                        <input type="text" class="form-control" id="description" placeholder="Descrption" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <div class="form-group col-md">
+                        <label for="supplier" clas="bold">Supplier</label>
+                        <select class="form-control " id="supplier">
+                            <option selected value="1">Engine Depot</option>
+                            <option value="2">Parts Depot</option>
+                            <option value="3">Canadian Tire</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <div class="form-group col-md">
+                        <label for="initialQuantity" clas="bold">Initial Quantity</label>
+                        <input type="number" class="form-control" id="initialQuantity" placeholder="Initial Quantity" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <div class="form-group col-md">
+                        <label for="initialPrice" clas="bold">Initial Price</label>
+                        <input type="number" class="form-control" id="initialPrice" placeholder="Initial Price" required>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+        </div>
+    </div>
+    </div>
+</body>
+</html>
+<script>
+
+
+$(document).ready(function () {
+
+    $('#products').DataTable({
+        ajax: '/json/products.json',
+        "columns": [
+            
+            { title: 'UPC', data: "productCode" },
+            { title: 'Description',data: "productDesc" },
+            { title: 'Supplier', data: "Supplier" },
+            { title: 'Current Price', data: "CurrentPrice" },
+            { title: 'Current Quantity', data: "CurrentQuantity" },
+            { title: 'Action' },
+        ],
+        columnDefs: [
+            {
+                targets: -1, //-1 es la ultima columna y 0 la primera
+                data: null,
+                defaultContent: '<button type="button" class="btn btn-primary btn-xs">Edit</button>  <button type="button" class="btn btn-danger btn-xs">Delete</button>'
+            },
+            { orderable: false, searchable: false, targets: -1 } //Ultima columna no ordenable para botones
+        ], 
+    });
+});    
+</script>
